@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    /> 
+    <title>Document</title>
+    <link rel="stylesheet" href="./public/css/micromodal.css">     
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="public/js/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+  </head>
+  <body>
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <form action="" id="myform">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="col-md-6 offset-md-3">
+                  <div class="form-group">
+                      <input type="hidden" name="id">
+                      <label for="">Tên</label>
+                      <input type="text" name="name" class="form-control">
+                      <span class="text-danger name"></span>
+                  </div>
+                  <div class="form-group">
+                    <input  type="hidden" name="id">
+                    <label for="">Tên bệnh viện</label>
+                    <select class="form-control" name="hospital" id="select">
+                      <option value="">hay chon </option>
+                    </select>
+                    <span class="text-danger hospital"></span>
+                  </div>
+                  <div class="form-group">
+                      <label for="">Tuổi</label>
+                      <input type="number" name="age" class="form-control">
+                      <span class="text-danger age"></span>
+                  </div>
+                  <div class="form-group">
+                      <label for="">số giường</label>
+                      <input type="number" name="bed_no" class="form-control">
+                      <span class="text-danger bed_no"></span>
+                  </div>
+                  <div class="form-group">
+                      <label for="">miêu tả </label>
+                      <textarea name="desc" rows="5" class="form-control"></textarea>
+                      <span class="text-danger desc"></span>
+                  </div>
+                  <div class="text-center">
+                      <button type="button" class="btn-save-create btn btn-sm btn-success">Lưu</button>
+                  </div>
+            </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-10 offset-md-1">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th class="name-hospital"> bệnh viện:  </th>
+          </tr>
+          <tr> 
+            <th>id</th>
+            <th>tên</th>
+            <th>tuổi</th>
+            <th>số giường bênh</th>
+            <th>
+              <button type="button" class="btn-create-modal btn btn-primary">add</button>
+              <button type="button" class="btn-create-modal btn btn-warning">
+                <a href="./index.html">back to hospital</a> 
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table> 
+    </div>
+
+    <script src="./public/js/micromodal.min.js"></script> 
+    <script src="./public/js/validateHospital.js"></script>
+    <script src="./public/js/room.js"></script> 
+    <script>
+      SystemCore.getNameHospital();
+      SystemCore.fetchData(); 
+      SystemCore.fetchHospital();
+    </script> 
+  </body>
+</html>

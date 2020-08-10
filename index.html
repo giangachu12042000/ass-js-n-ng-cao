@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+    <title>Document</title>
+    <link rel="stylesheet" href="./public/css/micromodal.css">     
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="public/js/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+   <!-- <a href=""></a> -->
+  </head>
+  <body>
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <form action="" id="myform">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="col-md-6 offset-md-3">
+                <div class="form-group">
+                    <input  type="hidden" name="id">
+                    <label for="">Tên bệnh viện</label>
+                    <input type="text" name="name" class="form-control" required>
+                    <!-- <span class="text-danger name"></span> -->
+                </div>
+                <div class="form-group"> 
+                    <label for="">avatar</label>
+                    <input type="url" name="avatar" class="form-control">
+                    <span class="text-danger avatar"></span>
+                </div> 
+                <div class="form-group"> 
+                    <label for="">địa chỉ</label>
+                    <input type="text" name="adress" class="form-control">
+                    <span class="text-danger adress"></span>
+                </div>
+                <div class="form-group"> 
+                  <label for="">số giường bệnh</label>
+                  <input type="number" name="bed_number" class="form-control">
+                  <span class="text-danger bedNumber"></span>
+                </div> 
+                <div class="text-center">
+                    <button class="btn-save-create btn btn-sm btn-success" type="button">Lưu</button>
+                </div> 
+            </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-10 offset-md-1">
+      <table class="table table-hover">
+        <thead>
+          <tr> 
+            <th>id</th>
+            <th>tên</th>
+            <th>địa chỉ</th>
+            <th>số giường bệnh</th>
+            <th width="70px">avatar</th>
+            <th><button type="button" class="btn-create-modal btn btn-primary">add</button></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table> 
+    </div>
+
+    <script src="./public/js/micromodal.min.js"></script> 
+    <script src="./public/js/validateHospital.js"></script>
+    <script src="./public/js/hospital.js"></script>
+
+    <script>
+      SystemCore.fetchData(); 
+    </script> 
+  </body>
+</html>
