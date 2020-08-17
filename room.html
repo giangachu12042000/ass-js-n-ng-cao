@@ -11,6 +11,8 @@
     /> 
     <title>Document</title>
     <link rel="stylesheet" href="./public/css/micromodal.css">     
+    <link rel="stylesheet" href="./public/css/main.css">
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="public/js/jquery-3.5.1.min.js"></script>
@@ -33,7 +35,6 @@
                     <input  type="hidden" name="id">
                     <label for="">Tên bệnh viện</label>
                     <select class="form-control" name="hospital" id="select">
-                      <option value="">hay chon </option>
                     </select>
                     <span class="text-danger hospital"></span>
                   </div>
@@ -49,7 +50,7 @@
                   </div>
                   <div class="form-group">
                       <label for="">miêu tả </label>
-                      <textarea name="desc" rows="5" class="form-control"></textarea>
+                      <textarea name="desc" rows="3" class="form-control"></textarea>
                       <span class="text-danger desc"></span>
                   </div>
                   <div class="text-center">
@@ -59,7 +60,9 @@
         </div>
       </form>
     </div>
-    <div class="col-md-10 offset-md-1">
+    <div id="loader">
+    </div>
+    <div class="col-md-10 offset-md-1" id="background-load">
       <table class="table table-hover">
         <thead>
           <tr>

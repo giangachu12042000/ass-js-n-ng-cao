@@ -1,6 +1,8 @@
 window.SystemCore = {
   url: "https://5f2a80ea6ae5cc00164229bb.mockapi.io/hospitals",
   fetchData: function () {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("background-load").style.display = "block";
     fetch(this.url)
       .then((reponse) => reponse.json())
       .then((data) => {
@@ -43,7 +45,6 @@ window.SystemCore = {
       url: urlP,
     })
     .then(res =>{
-      console.log(res,'===========================>1')
       if(res){
         Swal.fire(
           'Deleted!',
@@ -67,11 +68,12 @@ window.SystemCore = {
         }).then((result) => {
             if (result.value) { 
                 let removeUrl = `${this.url}/${id}/patients`;
+                document.getElementById("loader").style.display = "block";
+                document.getElementById("background-load").style.display = "none";
                 fetch(removeUrl, { method: "GET" })
                 .then((response) => response.json())
                 .then((data) => {
                   if (data.length > 0) {
-                    console.log(data ,'=====>if?')
                         let lengthD = data.length;
                         data.map((item,key)=>{
                           axios({
@@ -87,6 +89,7 @@ window.SystemCore = {
                               })
                               .then(res => {
                                 if(res){
+                                  document.getElementById("loader").style.display = "none";
                                   Swal.fire(
                                     'Deleted!',
                                     'Your file has been deleted.',
@@ -99,7 +102,6 @@ window.SystemCore = {
                           })
                         })
                     }else{
-                      console.log(data,'=====>?ese')
                       axios({
                         method: 'DELETE',
                         url: `${this.url}/${id}`
@@ -179,9 +181,7 @@ document.querySelector('.btn-save-create').onclick = function()
   // ==============================================>
   else{
     const form = $('#myform');
-    // form.validate();
     if(form.valid()){
-      console.log(data,'============================>?')
       let baseApiUrl = `https://5f2a80ea6ae5cc00164229bb.mockapi.io/hospitals`;
       fetch(baseApiUrl, {
           method: 'POST',
@@ -242,7 +242,6 @@ function openEditE(id)
     })
     .then((data)=>{
       if (data) {
-        console.log(data)
           document.querySelector('input[name="id"]').value = data.id;
           document.querySelector('input[name="name"]').value = data.name;
           document.querySelector('input[name="avatar"]').value = data.logo;

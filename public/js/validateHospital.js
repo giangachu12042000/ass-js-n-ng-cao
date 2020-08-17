@@ -50,7 +50,7 @@ $(document).ready(function(event){
           bed_number: "hãy nhập số giường bệnh lớn hơn 0 và nhỏ hơn 444",
           age: 'hãy nhập tuổi, tuổi lớn hơn 0 và nhỏ hơn 100',
           bed_no: 'hãy nhập số giường bệnh lớn hơn 0 và nhỏ hơn 444',
-          desc: 'hãy nhập miêu tả',
+          desc: 'hãy nhập miêu tả trong khoang 6 đến 225 ký tự',
           hospital:'hãy chọn bệnh viện'
         },
         submitHandler: function(form) {
